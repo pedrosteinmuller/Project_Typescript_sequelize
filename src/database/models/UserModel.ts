@@ -3,33 +3,33 @@
 import { Model, INTEGER, STRING, DATE } from 'sequelize';
 import db from '.';
 import CommentsModel from './CommentModel';
-import UserModel from './UserModel';
+import PostModel from './PostModel';
 
-class PostModel extends Model {
+class UserModel extends Model {
   declare readonly id: number;
-  declare title: string;
-  declare content: string;
-  declare userId: number;
+  declare name: string;
+  declare email: string;
+  declare password: string;
   declare createdAt: Date;
   declare updatedAt: Date;
 }
 
-PostModel.init({
+UserModel.init({
   id: {
     type: INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false
   },
-  title: {
+  name: {
     type: STRING,
     allowNull: false
   },
-  content: {
+  email: {
     type: STRING,
     allowNull: false
   },
-  userId: {
+  password: {
     type: INTEGER,
   },
   createdAt: {
@@ -40,19 +40,19 @@ PostModel.init({
   },
 }, {
   sequelize: db,
-  modelName: 'posts',
-  tableName: 'posts',
+  modelName: 'users',
+  tableName: 'users',
   underscored: true,
 });
 
-PostModel.belongsTo(UserModel, {
+UserModel.hasMany(PostModel, {
   foreignKey: 'user_id',
   as: 'user_id',
 })
 
-PostModel.hasMany(CommentsModel, {
-  foreignKey: 'post_id',
-  as: 'post_id',
+UserModel.hasMany(CommentsModel, {
+  foreignKey: 'user_id',
+  as: 'user_id',
 })
 
-export default PostModel;
+export default UserModel;
