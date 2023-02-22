@@ -9,11 +9,11 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      conteudo: {
+      content: {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      usuarioId: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -23,7 +23,7 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      postagemId: {
+      postsId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

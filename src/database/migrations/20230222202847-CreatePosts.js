@@ -9,15 +9,15 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      titulo: {
+      title: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      conteudo: {
+      content: {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      usuarioId: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
