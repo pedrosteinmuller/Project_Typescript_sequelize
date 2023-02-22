@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
