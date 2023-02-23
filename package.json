@@ -11,17 +11,30 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai-http": "^4.2.0",
+    "@types/mocha": "^10.0.1",
     "@types/node": "^18.14.0",
+    "chai": "4.3.4",
+    "chai-http": "^4.3.0",
+    "mocha": "8.4.0",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/chai": "^4.3.4",
+    "@types/express": "^4.17.17",
     "@types/sequelize": "^4.28.14",
+    "@types/sinon": "^10.0.13",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
     "mysql2": "^3.1.2",
+    "nyc": "^15.1.0",
     "sequelize": "^6.28.0",
-    "sequelize-cli": "^6.6.0"
+    "sequelize-cli": "^6.6.0",
+    "sinon": "^15.0.1",
+    "ts-sinon": "^2.0.2"
   }
 }
