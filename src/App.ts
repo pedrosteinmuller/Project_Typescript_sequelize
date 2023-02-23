@@ -1,5 +1,6 @@
 import 'express-async-errors';
 import express from 'express';
+import postRoutes from './api/routes/PostRoutes';
 
 class App {
   public app: express.Express;
@@ -22,10 +23,12 @@ class App {
   }
   
   private initRoutes(): void {
-
+    this.app.use(postRoutes);
   }
 
   public start(PORT: string | number):void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`))
   }
 }
+
+export default App;
