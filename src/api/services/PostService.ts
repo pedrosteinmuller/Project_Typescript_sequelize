@@ -1,7 +1,10 @@
 import { ModelStatic } from "sequelize";
 import PostModel from "../../database/models/PostModel";
+import idNotFound from "../errors/idNotFound";
 import IPost from "../interfaces/IPost";
 import IServicePost from "../interfaces/IServicePost";
+
+const ID_NOT_FOUND = 'ID inexistente';
 
 export default class PostService implements IServicePost {
 
@@ -17,7 +20,7 @@ export default class PostService implements IServicePost {
 
   async readById(id: number): Promise<PostModel> {
     const post = await this.model.findOne({ where: { id: id }})
-    if (!post) throw new Error('id not found');
+    if (!post) throw new idNotFound(ID_NOT_FOUND);
     return post;
   }
 
