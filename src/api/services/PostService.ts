@@ -14,4 +14,14 @@ export default class PostService implements IServicePost {
   async readAll(): Promise<PostModel[]> {
     return await this.model.findAll();
   }
+
+  async readById(id: number): Promise<PostModel> {
+    const post = await this.model.findOne({ where: { id: id }})
+    if (!post) throw new Error('id not found');
+    return post;
+  }
+
+  // update(id: string, dta: IPost): Promise<PostModel> {
+    
+  // }
 }
