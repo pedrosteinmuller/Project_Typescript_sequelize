@@ -1,6 +1,7 @@
 import 'express-async-errors';
 import express from 'express';
 import postRoutes from './api/routes/PostRoutes';
+import ErrorHandler from './api/middlewares/ErrorHandler';
 
 class App {
   public app: express.Express;
@@ -9,6 +10,7 @@ class App {
     this.app = express();
     this.initAuthHeader();
     this.initRoutes();
+    this.initMiddlewares();
   }
 
   private initAuthHeader(): void {
@@ -24,6 +26,10 @@ class App {
   
   private initRoutes(): void {
     this.app.use(postRoutes);
+  }
+
+  private initMiddlewares() {
+    this.app.use(ErrorHandler.handle)
   }
 
   public start(PORT: string | number):void {
